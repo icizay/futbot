@@ -41,8 +41,6 @@ class DixonColesModel:
         """
         if not matches:
             raise ValueError("Eğitim için maç verisi bulunamadı! Lig ID'sini veya sezonu kontrol edin.") #addedthis
-    
-         # ... mevcut kodlar ...
         
         teams = sorted({m["home"] for m in matches} | {m["away"] for m in matches})
         n = len(teams)

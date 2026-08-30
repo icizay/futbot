@@ -2,9 +2,6 @@
 Veri katmani: API-Football (RapidAPI / api-sports.io) uzerinden gecmis ve
 canli mac verisi ceker.
 
-API anahtari olmadan da --demo modunda calisabilmesi icin sentetik veri
-ureteci icerir, boylece kurulumdan hemen sonra sistemi test edebilirsin.
-
 API anahtari almak icin: https://www.api-football.com/  (ucretsiz plan mevcut)
 Ortam degiskeni: API_FOOTBALL_KEY
 

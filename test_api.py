@@ -3,7 +3,6 @@ import requests
 from dotenv import load_dotenv
 from pathlib import Path
 
-# .env dosyanı okuyalım
 load_dotenv(Path(__file__).resolve().parent / ".env")
 api_key = os.environ.get("API_FOOTBALL_KEY")
 
@@ -20,7 +19,7 @@ print(f"3. Durum Kodu: {r.status_code}")
 json_data = r.json()
 
 if "errors" in json_data and json_data["errors"]:
-    print(f"🚨 API HATASI: {json_data['errors']}")
+    print(f"API ERROR: {json_data['errors']}")
 else:
     matches = json_data.get("response", [])
-    print(f"✅ Başarılı! Toplam {len(matches)} maç çekildi.")
+    print(f"Başarılı! Toplam {len(matches)} maç çekildi.")

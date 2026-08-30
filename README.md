@@ -5,8 +5,8 @@ Geçmiş maç verisinden bir **Dixon-Coles/Poisson modeli** kurar, maçlar için
 maçlarda kalan süreye göre olasılıkları günceller ve birden fazla maçtan
 "en değerli" seçimleri bir araya getirerek kupon önerir.
 
-> **Not:** Bu araç istatistiksel olasılık tahmini üretir, kesin sonuç
-> garantisi vermez. Bahis kararlarını kendi sorumluluğunuzda verin.
+Modelin çalışma şekli en aşağıda anlatıldı.
+Sistemin oluşturulmasında yapay zeka yardımı alındı.
 
 ## Kurulum
 
@@ -28,48 +28,31 @@ python -m futbot.cli coupon --demo --top 5
 ```
 
 `--demo` bayrağı, sabit bir seed ile üretilmiş sentetik lig verisi kullanır
-(8 takım, 200 maç) — gerçek veriye bağlanmadan sistemi test etmen için.
+(8 takım, 200 maç) 
 
 ## Gerçek veriyle çalıştırma
 
 1. https://www.api-football.com/ üzerinden (RapidAPI ya da doğrudan
    api-sports.io) ücretsiz bir API anahtarı al.
-2. Anahtarı gir — iki yoldan biriyle:
-
-   **A) `.env` dosyası (önerilen, tek seferlik kurulum):**
+2. Anahtarı gir
+   **A) `.env` dosyası:**
    ```bash
    cp .env.example .env
    ```
-   Sonra `.env` dosyasını aç ve satırı kendi anahtarınla değiştir:
+   API_FOOTBALL_KEY=your_key
    ```
-   API_FOOTBALL_KEY=senin_gercek_anahtarin
-   ```
-   Kod bu dosyayı hangi dizinden çalıştırırsan çalıştır otomatik okur.
-   `.env` dosyasını asla paylaşma/git'e ekleme (git kullanıyorsan
-   `.gitignore`'a `.env` satırını ekle).
-
-   **B) Ortam değişkeni (sadece o terminal oturumu için geçerli):**
-   ```bash
-   export API_FOOTBALL_KEY="senin_anahtarin"      # macOS/Linux
-   $env:API_FOOTBALL_KEY = "senin_anahtarin"       # Windows PowerShell
-   ```
-
 3. `--demo` bayrağını kaldırıp `--league-id` ve `--season` belirt:
    ```bash
    python -m futbot.cli predict --home Galatasaray --away Fenerbahce \
        --league-id 203 --season 2025
    ```
-   (Süper Lig'in `league-id` değerini API-Football dokümantasyonundan
+   (Liglerin `league-id` değerini API-Football dokümantasyonundan
    bulabilirsin: https://www.api-football.com/documentation-v3)
 
 `coupon` komutu şu an sadece `--demo` modunda fikstür üretiyor; gerçek
-kullanımda `cli.py` içindeki `cmd_coupon` fonksiyonuna
-`DataFetcher.get_live_fixtures()` ile çekilen güncel fikstür listesini
-eklemen gerekiyor (bilinçli olarak sana bıraktım, çünkü hangi ligi/hangi
-maçları takip edeceğin sana kalmış).
+kullanımda `cli.py` içindeki `cmd_coupon` fonksiyonuna `DataFetcher.get_live_fixtures()` ile takip edilmek istenen güncel fikstür listesini eklemek gerekiyor.
 
 ## Model önbellekleme (cache)
-
 Model her komut çalıştığında sıfırdan eğitilmiyor — ilk çalıştırmada eğitilip
 `futbot/.cache/` klasörüne kaydediliyor, sonraki çalıştırmalarda (varsayılan
 **24 saat** boyunca) doğrudan diskten yükleniyor. Bu hem API kotanı korur
@@ -99,28 +82,39 @@ futbot/
   cli.py                 # Komut satırı arayüzü (predict / live / coupon)
 ```
 
-## Nasıl geniştirilir
-
-- **Başka bir spor eklemek:** `poisson_model.py`'deki model futbole özgü
-  (gol bazlı Poisson). Basketbol için sayı bazlı bir model (ör. Elo + toplam
-  sayı regresyonu) ya da farklı bir dağılım gerekir; `data_fetcher.py`'ye
-  yeni bir spor için ayrı bir fetcher sınıfı eklemek en temiz yol.
-- **Oran (odds) verisiyle value bulma:** `DataFetcher.get_odds()` zaten var;
-  `coupon_builder.picks_from_market_probs()`'a `odds` sözlüğü verirsen
-  (`{("1x2","home"): 1.85, ...}`), kupon otomatik olarak model olasılığı ile
-  oranın ima ettiği olasılığı kıyaslayıp "edge"e göre sıralar.
+## Yeni fikirler
+- **Başka bir spor eklemek**
 - **Daha güçlü model:** xG (expected goals) verisi eklemek (ör. Understat)
-  gol sayısından daha öngörücü olur; `generate_demo_history` yerine gerçek
-  xG bazlı ağırlıklandırma eklenebilir.
-- **Telegram/Discord botuna dönüştürmek:** `cli.py`'deki `cmd_*`
-  fonksiyonları zaten saf mantığı içeriyor; bir `python-telegram-bot`
-  handler'ından bu fonksiyonları çağırman yeterli.
-- **Canlı polling:** `live_tracker.poll_live_match()` hazır; `fetch_live_state`
-  parametresine `DataFetcher.get_live_fixtures()`'ı saran bir fonksiyon
-  verip gerçek zamanlı çalıştırabilirsin.
+  gol sayısından daha efektif.
+- **Canlı polling**
 
 ## Sorumlu kullanım
 
-Model çıktıları geçmiş veriye dayalı istatistiksel tahminlerdir; sakatlık,
+Geçmiş veriye dayalı istatistiksel tahminlerdir; sakatlık,
 hakem kararları, motivasyon gibi faktörleri (veri olarak sağlanmadıkça)
-hesaba katmaz. Kupon/bahis kararlarında tek girdi olarak kullanılmamalı.
+hesaba katmaz. Bahis oynamayın.
+
+# Model nasıl çalışıyor
+
+Geçmiş maçlar okunur, her maç için ev sahibi takım, deplasman takımı ve golleri eğitim seti olur. Takım için attack/defense hesaplanır. Beklenen goller hesaplanır;
+
+ev sahibi için:
+```
+  λ_home = exp(attack_home - defense_away + home_advantage)
+```
+deplasman takımı için:
+```
+  λ_away = exp(attack_away - defense_home)
+```
+
+Poisson dağılımı "X gol atma olasılığı" için kullanılır. Klasik poisson modellerinde bazı skor olasılıkları abartılmış olacağı için modelin gerçekçiliği amacıyla Dixon-Coles düzeltmesi eklenmiştir.
+
+Basit şekilde model takım A'nın hücum gücü, ev sahibi avantajı ve B takımının savunma zayıflığı üzerinden gol tahmini yapar, beklenen golleri de skor olasılıklarına çevirir. Çıktılar da böylece, 
+
+```
+  ev sahibi oranı
+  beraberlik oranı
+  under/over
+  karşılıklı gol
+  en olası skorlar
+```
