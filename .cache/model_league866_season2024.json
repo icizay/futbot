@@ -1,0 +1,15 @@
+{
+  "home_advantage": -0.0001370999424128935,
+  "rho": -0.05,
+  "league_avg_goals": 2.5,
+  "team_strength": {
+    "Liga MX All-Stars": {
+      "attack": 0.6914173855618395,
+      "defense": -7.279282302743669e-05
+    },
+    "MLS All-Stars": {
+      "attack": 7.15581582413411e-05,
+      "defense": -0.6914167919050773
+    }
+  }
+}

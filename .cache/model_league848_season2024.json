@@ -1,0 +1,663 @@
+{
+  "home_advantage": 0.3974082720310806,
+  "rho": -0.05,
+  "league_avg_goals": 1.3720316622691293,
+  "team_strength": {
+    "1. FC Heidenheim": {
+      "attack": 0.8582411006374228,
+      "defense": 1.3596669125047498
+    },
+    "AEK Athens FC": {
+      "attack": 0.3302354250688909,
+      "defense": 0.5878869786661263
+    },
+    "AEK Larnaca": {
+      "attack": -3.687706424444054,
+      "defense": -0.19334143315882305
+    },
+    "Aktobe": {
+      "attack": -2.469893043603956,
+      "defense": -1.3568166155867551
+    },
+    "Apoel Nicosia": {
+      "attack": 0.9945434394568315,
+      "defense": 1.3453798529949428
+    },
+    "Ararat-Armenia": {
+      "attack": 1.1407880305269844,
+      "defense": 1.7128313741020078
+    },
+    "Atlètic Club d'Escaldes": {
+      "attack": -4.0711706270999155,
+      "defense": 0.07487921926702494
+    },
+    "Auda": {
+      "attack": 0.5336636900334701,
+      "defense": 2.063702262589737
+    },
+    "Austria Vienna": {
+      "attack": 0.8373132253935575,
+      "defense": 0.9914121112104473
+    },
+    "B36 Torshavn": {
+      "attack": -2.1047672393342807,
+      "defense": 0.3215008174876359
+    },
+    "BK Hacken": {
+      "attack": 1.4803494525012602,
+      "defense": 0.0933910509827511
+    },
+    "Bala Town": {
+      "attack": -0.01776351034644537,
+      "defense": -0.9499463868182193
+    },
+    "Ballkani": {
+      "attack": -2.0173947627926307,
+      "defense": -0.16651867701199632
+    },
+    "Baník Ostrava": {
+      "attack": -0.4462077525684972,
+      "defense": 1.183073930250577
+    },
+    "Başakşehir": {
+      "attack": 1.252639276779573,
+      "defense": 0.710699850569444
+    },
+    "Borac Banja Luka": {
+      "attack": 0.30849529749513893,
+      "defense": 1.3392024694648368
+    },
+    "Botev Plovdiv": {
+      "attack": 0.167188323190084,
+      "defense": -1.256846176840077
+    },
+    "Brann": {
+      "attack": 0.8984628786308069,
+      "defense": 0.0276959225832014
+    },
+    "Bravo": {
+      "attack": 0.12092052289820777,
+      "defense": -1.248847937950355
+    },
+    "Breidablik": {
+      "attack": 0.004770839220521702,
+      "defense": -1.5972007754921103
+    },
+    "Brondby": {
+      "attack": 1.6346548028749532,
+      "defense": 0.8412423906356622
+    },
+    "Buducnost Podgorica": {
+      "attack": -0.9306456954574104,
+      "defense": 1.642024829603698
+    },
+    "CFR 1907 Cluj": {
+      "attack": 0.0005958803942174869,
+      "defense": 1.1892691911995548
+    },
+    "CSKA 1948": {
+      "attack": 1.3414171820954863,
+      "defense": 1.333352253073897
+    },
+    "Caernarfon Town": {
+      "attack": -1.5822128660823405,
+      "defense": -0.1500580447093889
+    },
+    "Celje": {
+      "attack": 1.54673107713774,
+      "defense": 0.9313158130300263
+    },
+    "Cercle Brugge": {
+      "attack": 1.203256958071014,
+      "defense": 0.9155043033112238
+    },
+    "Chelsea": {
+      "attack": 2.1827958070885267,
+      "defense": 1.566676364990402
+    },
+    "Cherno More Varna": {
+      "attack": -0.747065274251172,
+      "defense": 1.3212505427076593
+    },
+    "Cliftonville FC": {
+      "attack": 1.0662490400892106,
+      "defense": 0.0462185711929303
+    },
+    "Corvinul Hunedoara": {
+      "attack": 0.9767656500968376,
+      "defense": -0.8953391071181249
+    },
+    "Crusaders FC": {
+      "attack": -3.2934240187326735,
+      "defense": -1.829051863011205
+    },
+    "Derry City": {
+      "attack": -3.3414874702397586,
+      "defense": -0.062001215973112686
+    },
+    "Dečić": {
+      "attack": -1.3195092141000582,
+      "defense": 0.31616766950298825
+    },
+    "Dinamo Batumi": {
+      "attack": -2.9111234450399475,
+      "defense": -1.095102190539571
+    },
+    "Dinamo Minsk": {
+      "attack": 0.2866965048032018,
+      "defense": 0.31209396007243406
+    },
+    "Dinamo Tbilisi": {
+      "attack": -0.4703727997015754,
+      "defense": -0.3834645635250413
+    },
+    "Djurgardens IF": {
+      "attack": 1.2335327629555861,
+      "defense": 1.4039360002948118
+    },
+    "Dnipro-1": {
+      "attack": -3.000478670516787,
+      "defense": 1.2673763771024775
+    },
+    "Drita": {
+      "attack": -1.418800317038808,
+      "defense": 1.0599624747155054
+    },
+    "Dunajska Streda": {
+      "attack": -0.7721289880341129,
+      "defense": -0.7725521305642709
+    },
+    "Egnatia Rrogozhinë": {
+      "attack": 0.032448731075024766,
+      "defense": 1.0785114718846807
+    },
+    "F91 Dudelange": {
+      "attack": 0.28145026473683665,
+      "defense": -0.05918770856498111
+    },
+    "FC Astana": {
+      "attack": 0.28433208385213926,
+      "defense": 1.2472826832046253
+    },
+    "FC Copenhagen": {
+      "attack": 0.9263642337866436,
+      "defense": 1.1908742697586088
+    },
+    "FC Differdange 03": {
+      "attack": 0.2903108028052872,
+      "defense": 1.0379594801902876
+    },
+    "FC Isloch Minsk R.": {
+      "attack": -0.00750107756381321,
+      "defense": 2.125579960687512
+    },
+    "FC Levadia Tallinn": {
+      "attack": -0.8315983322327066,
+      "defense": -1.240260888598837
+    },
+    "FC Lugano": {
+      "attack": 1.200615085019837,
+      "defense": 1.2527438764479821
+    },
+    "FC Noah": {
+      "attack": 0.7677624140150455,
+      "defense": 0.6802382205438928
+    },
+    "FC ST. Gallen": {
+      "attack": 1.0986907561277979,
+      "defense": 0.23062704225916458
+    },
+    "FC Urartu": {
+      "attack": 0.18400314045908978,
+      "defense": -1.445141254070781
+    },
+    "FC Vaduz": {
+      "attack": 1.7463961336404954,
+      "defense": -1.9180449904240968
+    },
+    "FC Zurich": {
+      "attack": -1.379041563389526,
+      "defense": 0.7261374046244248
+    },
+    "FK Liepaja": {
+      "attack": -1.2509054129026318,
+      "defense": 0.04581152499575314
+    },
+    "FK Partizan": {
+      "attack": -2.652626403532711,
+      "defense": 0.9543763133147178
+    },
+    "FK Sarajevo": {
+      "attack": -1.4663138799146558,
+      "defense": 0.70146027975555
+    },
+    "FK Tobol Kostanay": {
+      "attack": -0.6046809675383275,
+      "defense": 0.41462992421924694
+    },
+    "FK Zalgiris Vilnius": {
+      "attack": 1.53014536376824,
+      "defense": 1.3058688080212495
+    },
+    "Fehérvár FC": {
+      "attack": -1.9663076481199941,
+      "defense": 0.8440160590779708
+    },
+    "Fiorentina": {
+      "attack": 1.6464996245526913,
+      "defense": 1.0896591400654156
+    },
+    "Flora Tallinn": {
+      "attack": 0.5894256293311007,
+      "defense": 0.6727391318651352
+    },
+    "Floriana": {
+      "attack": -1.8862968118614507,
+      "defense": 0.7122602494388881
+    },
+    "GAP Connah S Quay FC": {
+      "attack": -2.058155743062601,
+      "defense": 0.3190715011578022
+    },
+    "GO Ahead Eagles": {
+      "attack": -0.9050152140256625,
+      "defense": 1.1178437719599978
+    },
+    "Gent": {
+      "attack": 0.7248364369555618,
+      "defense": 1.2267439953797963
+    },
+    "Guimaraes": {
+      "attack": 1.4175270430970426,
+      "defense": 1.061850030961661
+    },
+    "HB Torshavn": {
+      "attack": -2.1382657767036957,
+      "defense": -2.2758359219761752
+    },
+    "HJK Helsinki": {
+      "attack": -0.13391590832267958,
+      "defense": 0.9178033087824918
+    },
+    "HNK Hajduk Split": {
+      "attack": -2.5127498838868685,
+      "defense": 1.7836040655763739
+    },
+    "HNK Rijeka": {
+      "attack": 0.07129810526008887,
+      "defense": -0.27451572380596995
+    },
+    "Hamrun Spartans": {
+      "attack": -3.179514154880469,
+      "defense": -1.8026995268404775
+    },
+    "Hapoel Beer Sheva": {
+      "attack": 1.0815392897760574,
+      "defense": 0.19528186749870222
+    },
+    "Heart Of Midlothian": {
+      "attack": 0.6214794089348357,
+      "defense": 0.667785842832201
+    },
+    "Ilves": {
+      "attack": 1.2417686996970756,
+      "defense": 0.7740702714232665
+    },
+    "Inter Club d'Escaldes": {
+      "attack": 0.7364422550158602,
+      "defense": -0.8842824691680282
+    },
+    "Jagiellonia": {
+      "attack": 1.0676637059423777,
+      "defense": 1.3761197261918001
+    },
+    "KI Klaksvik": {
+      "attack": 1.0689671753821235,
+      "defense": -0.5896023045231723
+    },
+    "Kilmarnock": {
+      "attack": 0.4076478019762391,
+      "defense": 0.7623265400737258
+    },
+    "Kryvbas KR": {
+      "attack": -2.3932974400171596,
+      "defense": 0.5843483166476976
+    },
+    "KuPS": {
+      "attack": -2.223483082695436,
+      "defense": 0.8569669165946957
+    },
+    "La Fiorita": {
+      "attack": -0.24701052092448747,
+      "defense": -0.1040138421883438
+    },
+    "Larne": {
+      "attack": -0.22174757979137086,
+      "defense": 0.49526306498766437
+    },
+    "Lask Linz": {
+      "attack": 0.48533281777221604,
+      "defense": 0.4367377811875064
+    },
+    "Legia Warszawa": {
+      "attack": 1.3435250699658001,
+      "defense": 1.4357728262816518
+    },
+    "Lens": {
+      "attack": 0.809317985116868,
+      "defense": 1.1035076672643416
+    },
+    "Lincoln Red Imps FC": {
+      "attack": 0.6649695272197909,
+      "defense": -0.6737033072780526
+    },
+    "Linfield": {
+      "attack": -0.7879572174608294,
+      "defense": -0.3055365665530712
+    },
+    "Llapi": {
+      "attack": 0.6887998763902453,
+      "defense": 0.4525258124404063
+    },
+    "Maccabi Haifa": {
+      "attack": -3.066607379598626,
+      "defense": -2.644268832345977
+    },
+    "Maccabi Petah Tikva": {
+      "attack": -2.4941781732206114,
+      "defense": 0.2051357755383845
+    },
+    "Magpies": {
+      "attack": 0.21802822302705785,
+      "defense": -0.22293925639860698
+    },
+    "Malisheva": {
+      "attack": 0.6931084131010449,
+      "defense": -1.105432525261878
+    },
+    "Maribor": {
+      "attack": -1.2826005052974925,
+      "defense": 1.4844679209607838
+    },
+    "Marsaxlokk": {
+      "attack": -1.5665282079802991,
+      "defense": -2.002084772596782
+    },
+    "Milsami Orhei": {
+      "attack": 0.24535659162200263,
+      "defense": 0.5174287569501783
+    },
+    "Mlada Boleslav": {
+      "attack": 0.9116492466823863,
+      "defense": 0.8645245587581258
+    },
+    "Molde": {
+      "attack": 1.2772345642683491,
+      "defense": 0.488582535667316
+    },
+    "Mornar": {
+      "attack": -0.16450586740306813,
+      "defense": -0.22411154738230413
+    },
+    "NK Osijek": {
+      "attack": -0.36005023027876865,
+      "defense": 0.11104609228778506
+    },
+    "Neman": {
+      "attack": -2.4941708349009577,
+      "defense": -0.7251514811176002
+    },
+    "Olimpija Ljubljana": {
+      "attack": 0.5967764739014313,
+      "defense": 0.9651516735027456
+    },
+    "Omonia Nicosia": {
+      "attack": 1.039549507430132,
+      "defense": 1.0078449192270482
+    },
+    "Ordabasy": {
+      "attack": -3.4221412343702835,
+      "defense": 0.7659913505196894
+    },
+    "Pafos": {
+      "attack": 1.3165191601070596,
+      "defense": 1.151257707590125
+    },
+    "Paide": {
+      "attack": -0.26024396011622913,
+      "defense": 0.451958649350617
+    },
+    "Paks": {
+      "attack": 0.5172685107631827,
+      "defense": 0.17123015732618826
+    },
+    "Panathinaikos": {
+      "attack": 1.28662916590632,
+      "defense": 1.0524374051550036
+    },
+    "Panevėžys": {
+      "attack": -2.833061939372736,
+      "defense": 0.5473530444535776
+    },
+    "Partizani": {
+      "attack": -1.8426698247499358,
+      "defense": -1.4115536679858285
+    },
+    "Petrocub": {
+      "attack": 0.5227260852159031,
+      "defense": 0.5980934536540713
+    },
+    "Polessya": {
+      "attack": 0.07130464481067798,
+      "defense": 0.15595086871716882
+    },
+    "Progres Niederkorn": {
+      "attack": 0.5626605681905692,
+      "defense": 1.0450303807579804
+    },
+    "Puskas Academy": {
+      "attack": 2.1697087575698815,
+      "defense": 0.9549623197627662
+    },
+    "Pyunik Yerevan": {
+      "attack": 0.6220166572247207,
+      "defense": 1.0468723309042764
+    },
+    "Radnicki 1923": {
+      "attack": -0.6919408490097884,
+      "defense": 2.2990788869220538
+    },
+    "Rapid Vienna": {
+      "attack": 1.2928807859548752,
+      "defense": 1.5516546763780679
+    },
+    "Real Betis": {
+      "attack": 1.2757377791010216,
+      "defense": 1.387929735293324
+    },
+    "Riga": {
+      "attack": 0.48228442777309455,
+      "defense": 0.2439950051496208
+    },
+    "Ružomberok": {
+      "attack": 0.8897640642650869,
+      "defense": 0.32237479467229363
+    },
+    "ST Mirren": {
+      "attack": -0.29235196744884817,
+      "defense": 0.37963531541230944
+    },
+    "Sabah FA": {
+      "attack": -1.5685427168729658,
+      "defense": -0.8229716690430754
+    },
+    "Saburtalo": {
+      "attack": -1.7235386006471276,
+      "defense": 1.1346518758105706
+    },
+    "Servette FC": {
+      "attack": 1.292615380150309,
+      "defense": 2.0580948420394036
+    },
+    "Shamrock Rovers": {
+      "attack": 1.4951645171708483,
+      "defense": 1.259762736237543
+    },
+    "Shelbourne": {
+      "attack": -2.228645383149966,
+      "defense": -1.5293843199113604
+    },
+    "Sheriff Tiraspol": {
+      "attack": -2.849326501723787,
+      "defense": 0.1559502366944618
+    },
+    "Shkendija": {
+      "attack": -0.18518510277005587,
+      "defense": 0.31358480942158995
+    },
+    "Silkeborg": {
+      "attack": 1.4374116653897941,
+      "defense": 0.0199175874419952
+    },
+    "Slask Wroclaw": {
+      "attack": 0.4361880289075268,
+      "defense": 0.6719042634231325
+    },
+    "Sliema Wanderers": {
+      "attack": -3.3215720925088053,
+      "defense": -0.28976193302401904
+    },
+    "Spartak Trnava": {
+      "attack": 0.8766821310091939,
+      "defense": 1.7273718156591569
+    },
+    "St Joseph S Fc": {
+      "attack": -1.7033964585975745,
+      "defense": -2.384161278356766
+    },
+    "St Patrick's Athl.": {
+      "attack": -1.2243784568921774,
+      "defense": 1.5409482290770187
+    },
+    "Stjarnan": {
+      "attack": 0.17757556632733662,
+      "defense": -0.9670201604729858
+    },
+    "Struga": {
+      "attack": 1.1989925795116327,
+      "defense": 0.15459807764832767
+    },
+    "Sumqayıt": {
+      "attack": -0.07776391971450872,
+      "defense": -1.7483507027972804
+    },
+    "TSC Backa Topola": {
+      "attack": 1.2160678477206952,
+      "defense": 0.3150536510868825
+    },
+    "Tallinna Kalev": {
+      "attack": -2.277254936008779,
+      "defense": -0.29514332623770595
+    },
+    "The New Saints": {
+      "attack": 0.7466859113849416,
+      "defense": 1.089738680871097
+    },
+    "Tikveš": {
+      "attack": -1.11790182977528,
+      "defense": -0.7070076695844422
+    },
+    "Tirana": {
+      "attack": -0.5815903592734535,
+      "defense": 1.0733658319321586
+    },
+    "Torpedo Kutaisi": {
+      "attack": 0.8439361987354649,
+      "defense": 0.33886609333120826
+    },
+    "Torpedo Zhodino": {
+      "attack": 0.2991940590453828,
+      "defense": -0.23634264373247568
+    },
+    "Trabzonspor": {
+      "attack": -2.738903215603668,
+      "defense": 3.969673425562437
+    },
+    "TransINVEST Vilnius": {
+      "attack": -3.062591973247095,
+      "defense": 0.7209367973532189
+    },
+    "Tre Penne": {
+      "attack": 0.5161873627820447,
+      "defense": -2.3507704227344224
+    },
+    "Tromso": {
+      "attack": 0.5848300128239856,
+      "defense": 0.2900252069385178
+    },
+    "UE Santa Coloma": {
+      "attack": -3.122666869983015,
+      "defense": 0.22586729027251942
+    },
+    "UNA Strassen": {
+      "attack": -2.8235501191126744,
+      "defense": -2.889758031147913
+    },
+    "Universitatea Craiova": {
+      "attack": 1.660755792703385,
+      "defense": -1.732937035010491
+    },
+    "VPS": {
+      "attack": 0.33632928792353606,
+      "defense": 1.3495810003801691
+    },
+    "Valur Reykjavik": {
+      "attack": -0.6540691495638205,
+      "defense": -0.7892648930850737
+    },
+    "Velež": {
+      "attack": -1.1538811428235436,
+      "defense": -0.13434785623783074
+    },
+    "Vikingur Gota": {
+      "attack": 0.2609048199448286,
+      "defense": -0.3166444903806092
+    },
+    "Vikingur Reykjavik": {
+      "attack": 0.8878166930095046,
+      "defense": 0.8917453590327442
+    },
+    "Virtus": {
+      "attack": -2.622223712777731,
+      "defense": 2.6943004929033605
+    },
+    "Vllaznia Shkodër": {
+      "attack": -1.0048871623142546,
+      "defense": -1.5443797507896153
+    },
+    "Vojvodina": {
+      "attack": 1.5905919185059165,
+      "defense": -1.5317478602525099
+    },
+    "Wisla Krakow": {
+      "attack": 1.6332545384696076,
+      "defense": 0.1734953202124621
+    },
+    "Zimbru": {
+      "attack": 0.8708857074874831,
+      "defense": 0.28618475320758
+    },
+    "Zira": {
+      "attack": 0.10628847338584803,
+      "defense": 0.1491062958656184
+    },
+    "Zrinjski": {
+      "attack": -1.111332050280769,
+      "defense": 0.37214614473759755
+    },
+    "Šiauliai": {
+      "attack": -4.317815950752309,
+      "defense": -0.6346487428840415
+    }
+  }
+}
