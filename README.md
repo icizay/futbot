@@ -39,6 +39,8 @@ python -m futbot.cli coupon --demo --top 5
    ```bash
    cp .env.example .env
    ```
+   
+   ```bash
    API_FOOTBALL_KEY=your_key
    ```
 3. `--demo` bayrağını kaldırıp `--league-id` ve `--season` belirt:
