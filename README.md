@@ -1,5 +1,41 @@
 # futbot — Futbol Maç Olasılık & Kupon Botu
 
+> **Backtest sonucu:** 1.468 maçlık geriye dönük testte model, bilgisiz baz
+> çizgi ile Pinnacle kapanış oranları arasındaki log-loss farkının
+> **%55 (Süper Lig) – %67 (Premier League)**'sini kapatıyor.
+
+| Lig (2021/22–2024/25, 2. yarılar) | Maç | futbot | Pinnacle | Baz çizgi | Mesafe kapatma |
+|---|---|---|---|---|---|
+| Süper Lig (`T1`) | 708 | 0.9914 | 0.9388 | 1.0547 | **%55** |
+| Premier League (`E0`) | 760 | 0.9713 | 0.9268 | 1.0622 | **%67** |
+
+<sub>Değerler 1X2 log-loss (düşük = iyi). Her sezonun ilk yarısıyla eğitilip ikinci
+yarısı tahmin edildi. Pinnacle olasılıkları kapanış oranlarından power yöntemiyle
+marjı temizlenerek hesaplandı. Baz çizgi yalnızca ev/beraberlik/deplasman frekansını
+bilir. Ayrıntılar ve yeniden üretmek için: [Backtest](#backtest-modeli-piyasaya-karşı-ölçmek).</sub>
+
+## Yol haritası
+
+Modeli iyileştirmek için sıradaki adımlar. Her birinin etkisi backtest ile ölçülecek:
+
+- [ ] **`rho` düzeltmesi:** Dixon-Coles düzeltme terimi şu an log-likelihood'a
+      girmediği için eğitilmiyor (hep `-0.05` kalıyor); eğitime dahil etmek.
+- [ ] **Zaman ağırlığı:** Eski maçların ağırlığını üstel olarak azaltmak
+      (`fit` zaten maç başına `weight` alanını destekliyor).
+- [ ] **Önceki sezon verisi:** Sezon başında modeli önceki sezonla, düşük
+      ağırlıkla beslemek.
+- [ ] **Daha fazla market için backtest:** 2.5 Alt/Üst tahminlerini de piyasa
+      oranlarıyla karşılaştırmak.
+- [ ] **xG verisi:** Gol sayısı yerine/yanında beklenen gol (ör. Understat) kullanmak.
+- [ ] **Gerçek fikstürle kupon:** `coupon` komutunu `--demo` dışında
+      `DataFetcher.get_upcoming_fixtures()` ile çalıştırmak.
+- [ ] **Canlı polling:** Canlı maçları belirli aralıklarla otomatik güncellemek.
+- [ ] **Kod temizliği:** `data_fetcher.py` içindeki kalıntı yorum ve çift
+      `r.json()` çağrısını temizlemek; testler eklemek.
+- [ ] Başka bir spor eklemek.
+
+## Hakkında
+
 Geçmiş maç verisinden bir **Dixon-Coles/Poisson modeli** kurar, maçlar için
 1X2, 2.5 Alt/Üst, Karşılıklı Gol ve en olası skorları hesaplar; canlı
 maçlarda kalan süreye göre olasılıkları günceller ve birden fazla maçtan
@@ -73,13 +109,7 @@ API anahtarı gerekmez.
 python -m futbot backtest --league T1 --season 2122 2223 2324 2425
 ```
 
-| Lig (2021/22–2024/25, 2. yarılar) | Maç | futbot log-loss | Pinnacle log-loss | Baz çizgi | Mesafe kapatma |
-|---|---|---|---|---|---|
-| Süper Lig (`T1`) | 708 | 0.9914 | 0.9388 | 1.0547 | %55 |
-| Premier League (`E0`) | 760 | 0.9713 | 0.9268 | 1.0622 | %67 |
-
-*Mesafe kapatma:* takımlardan habersiz baz çizgiden (sadece ev/beraberlik/deplasman
-frekansı) piyasaya olan log-loss farkının ne kadarını modelin kapattığı.
+Sonuçlar sayfanın en üstündeki tabloda.
 
 ## Model önbellekleme (cache)
 Model her komut çalıştığında sıfırdan eğitilmiyor — ilk çalıştırmada eğitilip
@@ -117,12 +147,6 @@ futbot/                  # repo kökü
 ├── pyproject.toml
 └── requirements.txt
 ```
-
-## Yeni fikirler
-- **Başka bir spor eklemek**
-- **Daha güçlü model:** xG (expected goals) verisi eklemek (ör. Understat)
-  gol sayısından daha efektif.
-- **Canlı polling**
 
 ## Sorumlu kullanım
 
