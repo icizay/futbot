@@ -18,11 +18,12 @@ from typing import List, Optional
 from pathlib import Path
 
 import requests
-from dotenv import load_dotenv
+from dotenv import find_dotenv, load_dotenv
 
-# .env dosyasini, calisma dizini ne olursa olsun bu dosyanin (data_fetcher.py)
-# bulundugu klasorden okur -> futbot/.env
-load_dotenv(Path(__file__).resolve().parent / ".env")
+# .env dosyasini once calisma dizininden (ve ust klasorlerinden), bulamazsa
+# proje kokunden okur. Zaten tanimli ortam degiskenlerinin uzerine yazmaz.
+load_dotenv(find_dotenv(usecwd=True))
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 API_BASE = "https://v3.football.api-sports.io"
 

@@ -1,1 +1,19 @@
+# Gizli anahtarlar
 .env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Egitilmis model cache'i
+.cache/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

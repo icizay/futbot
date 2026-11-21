@@ -11,8 +11,14 @@ Sistemin oluşturulmasında yapay zeka yardımı alındı.
 ## Kurulum
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/icizay/futbot.git
+cd futbot
+python -m venv .venv && source .venv/bin/activate
+pip install -e .          # ya da: pip install -r requirements.txt
 ```
+
+`pip install -e .` ile kurarsan `python -m futbot.cli ...` yerine kısaca
+`futbot ...` komutunu da kullanabilirsin.
 
 ## Hızlı başlangıç (API anahtarı gerekmez)
 
@@ -34,15 +40,13 @@ python -m futbot.cli coupon --demo --top 5
 
 1. https://www.api-football.com/ üzerinden (RapidAPI ya da doğrudan
    api-sports.io) ücretsiz bir API anahtarı al.
-2. Anahtarı gir
-   **A) `.env` dosyası:**
+2. `.env.example` dosyasını `.env` olarak kopyala ve anahtarını yaz
+   (`.env` git'e eklenmez):
    ```bash
    cp .env.example .env
+   # .env içinde: API_FOOTBALL_KEY=your_key
    ```
-   
-   ```bash
-   API_FOOTBALL_KEY=your_key
-   ```
+   Anahtarın çalıştığını kontrol etmek için: `python scripts/check_api.py`
 3. `--demo` bayrağını kaldırıp `--league-id` ve `--season` belirt:
    ```bash
    python -m futbot.cli predict --home Galatasaray --away Fenerbahce \
@@ -76,12 +80,18 @@ birbirinin cache'ini ezmez.
 ## Proje yapısı
 
 ```
-futbot/
-  poisson_model.py    # Dixon-Coles/Poisson model: fit(), market_probabilities()
-  data_fetcher.py      # API-Football entegrasyonu + demo veri üreteci
-  live_tracker.py       # Canlı maç için kalan-süre ölçekli olasılık güncelleme
-  coupon_builder.py     # Value/olasılık bazlı kupon oluşturma mantığı
-  cli.py                 # Komut satırı arayüzü (predict / live / coupon)
+futbot/                  # repo kökü
+├── futbot/              # Python paketi
+│   ├── poisson_model.py   # Dixon-Coles/Poisson model: fit(), market_probabilities()
+│   ├── data_fetcher.py    # API-Football entegrasyonu + demo veri üreteci
+│   ├── live_tracker.py    # Canlı maç için kalan-süre ölçekli olasılık güncelleme
+│   ├── coupon_builder.py  # Value/olasılık bazlı kupon oluşturma mantığı
+│   └── cli.py             # Komut satırı arayüzü (predict / live / coupon)
+├── scripts/
+│   └── check_api.py     # API anahtarını test eden küçük script
+├── .env.example         # Ortam değişkeni şablonu
+├── pyproject.toml
+└── requirements.txt
 ```
 
 ## Yeni fikirler

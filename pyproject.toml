@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "futbot"
+version = "0.1.0"
+description = "Dixon-Coles/Poisson tabanli futbol mac olasilik ve kupon botu"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "scipy",
+    "requests",
+    "tabulate",
+    "python-dotenv",
+]
+
+[project.scripts]
+futbot = "futbot.cli:main"
+
+[tool.setuptools]
+packages = ["futbot"]
