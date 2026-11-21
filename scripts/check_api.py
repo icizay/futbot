@@ -18,7 +18,7 @@ print(f"1. API key okundu: {api_key[:4]}...{api_key[-4:]}")
 
 url = "https://v3.football.api-sports.io/fixtures"
 headers = {"x-apisports-key": api_key}
-params = {"league": 253, "season": 2025, "status": "FT"}  # MLS 2025 Sezonu
+params = {"league": 253, "season": 2024, "status": "FT"}  # MLS 2024 (ucretsiz plan: 2022-2024)
 
 print("2. API'ye istek atiliyor...")
 r = requests.get(url, headers=headers, params=params, timeout=15)

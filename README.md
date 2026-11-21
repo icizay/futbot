@@ -40,6 +40,9 @@ python -m futbot.cli coupon --demo --top 5
 
 1. https://www.api-football.com/ üzerinden (RapidAPI ya da doğrudan
    api-sports.io) ücretsiz bir API anahtarı al.
+   > **Ücretsiz plan sınırı:** Ücretsiz plan sadece **2022–2024** sezonlarına
+   > erişim veriyor ve günlük 100 istekle sınırlı. Daha yeni bir sezon
+   > istersen API `Free plans do not have access to this season` hatası döner.
 2. `.env.example` dosyasını `.env` olarak kopyala ve anahtarını yaz
    (`.env` git'e eklenmez):
    ```bash
@@ -50,7 +53,7 @@ python -m futbot.cli coupon --demo --top 5
 3. `--demo` bayrağını kaldırıp `--league-id` ve `--season` belirt:
    ```bash
    python -m futbot.cli predict --home Galatasaray --away Fenerbahce \
-       --league-id 203 --season 2025
+       --league-id 203 --season 2024
    ```
    (Liglerin `league-id` değerini API-Football dokümantasyonundan
    bulabilirsin: https://www.api-football.com/documentation-v3)
@@ -94,7 +97,7 @@ python -m futbot.cli predict --home Galatasaray --away Fenerbahce --demo --cache
 
 Cache anahtarı `--demo` modunda tek bir dosya (`model_demo.json`), gerçek
 veriyle her `league-id`/`season` kombinasyonu için ayrı bir dosya olarak
-tutulur (`model_league39_season2025.json` gibi) — yani farklı ligler
+tutulur (`model_league39_season2024.json` gibi) — yani farklı ligler
 birbirinin cache'ini ezmez.
 
 ## Proje yapısı
