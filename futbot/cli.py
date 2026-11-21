@@ -137,6 +137,29 @@ def cmd_coupon(args):
     print("\nNot: Bu olasiliklar istatistiksel bir modelden gelir, garanti degildir. Sorumlu bahis oynayin.\n")
 
 
+def cmd_backtest(args):
+    from .backtest import run_backtest
+
+    print(f"Backtest: {args.league} {', '.join(args.season)} "
+          f"(ilk %{args.split * 100:.0f} egitim, kalan test)\n")
+    res = run_backtest(args.league, args.season, args.split)
+
+    labels = {"model": "futbot (Dixon-Coles)", "pinnacle": "Pinnacle kapanis",
+              "baseline": "Baz cizgi (H/D/A frekansi)"}
+    print()
+    print(tabulate(
+        [[labels[k], f"{v['log_loss']:.4f}", f"{v['brier']:.4f}"] for k, v in res.items()],
+        headers=["Tahminci", "Log-loss", "Brier"],
+    ))
+
+    m, b, base = res["model"]["log_loss"], res["pinnacle"]["log_loss"], res["baseline"]["log_loss"]
+    # Baz cizgiden piyasaya olan mesafenin ne kadarini model kapatiyor?
+    gap_closed = (base - m) / (base - b) if base != b else float("nan")
+    print(f"\n{res['model']['n']} mac | log-loss farki (model - piyasa): {m - b:+.4f} | "
+          f"baz cizgi -> piyasa mesafesinin %{gap_closed * 100:.0f}'i kapatildi")
+    print("(Dusuk log-loss/Brier daha iyidir.)")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Futbol mac olasilik ve kupon botu")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -172,6 +195,12 @@ def main():
     p_coupon.add_argument("--refresh", action="store_true", help="Cache'i yok say, modeli yeniden egit")
     p_coupon.add_argument("--cache-hours", type=float, default=24.0, help="Cache'in gecerli sayilacagi sure (saat)")
     p_coupon.set_defaults(func=cmd_coupon)
+
+    p_bt = sub.add_parser("backtest", help="Modeli bahis piyasasina karsi geriye donuk test et")
+    p_bt.add_argument("--league", default="T1", help="football-data.co.uk lig kodu (T1=Super Lig, E0=Premier League)")
+    p_bt.add_argument("--season", nargs="+", default=["2223", "2324"], help="Sezon kodlari, orn. 2324 = 2023/24")
+    p_bt.add_argument("--split", type=float, default=0.5, help="Egitime ayrilan mac orani")
+    p_bt.set_defaults(func=cmd_backtest)
 
     args = parser.parse_args()
     args.func(args)

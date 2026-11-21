@@ -58,6 +58,26 @@ python -m futbot.cli coupon --demo --top 5
 `coupon` komutu şu an sadece `--demo` modunda fikstür üretiyor; gerçek
 kullanımda `cli.py` içindeki `cmd_coupon` fonksiyonuna `DataFetcher.get_live_fixtures()` ile takip edilmek istenen güncel fikstür listesini eklemek gerekiyor.
 
+## Backtest (modeli piyasaya karşı ölçmek)
+
+Her sezonun ilk yarısıyla model eğitilir, ikinci yarısı tahmin edilir ve 1X2
+tahminleri **log-loss** ve **Brier** skoruyla puanlanır. Karşılaştırma
+noktası, Pinnacle kapanış oranlarının ima ettiği olasılıklardır (marj power
+yöntemiyle temizlenir). Veri: [football-data.co.uk](https://www.football-data.co.uk/),
+API anahtarı gerekmez.
+
+```bash
+python -m futbot backtest --league T1 --season 2122 2223 2324 2425
+```
+
+| Lig (2021/22–2024/25, 2. yarılar) | Maç | futbot log-loss | Pinnacle log-loss | Baz çizgi | Mesafe kapatma |
+|---|---|---|---|---|---|
+| Süper Lig (`T1`) | 708 | 0.9914 | 0.9388 | 1.0547 | %55 |
+| Premier League (`E0`) | 760 | 0.9713 | 0.9268 | 1.0622 | %67 |
+
+*Mesafe kapatma:* takımlardan habersiz baz çizgiden (sadece ev/beraberlik/deplasman
+frekansı) piyasaya olan log-loss farkının ne kadarını modelin kapattığı.
+
 ## Model önbellekleme (cache)
 Model her komut çalıştığında sıfırdan eğitilmiyor — ilk çalıştırmada eğitilip
 `futbot/.cache/` klasörüne kaydediliyor, sonraki çalıştırmalarda (varsayılan
@@ -86,7 +106,8 @@ futbot/                  # repo kökü
 │   ├── data_fetcher.py    # API-Football entegrasyonu + demo veri üreteci
 │   ├── live_tracker.py    # Canlı maç için kalan-süre ölçekli olasılık güncelleme
 │   ├── coupon_builder.py  # Value/olasılık bazlı kupon oluşturma mantığı
-│   └── cli.py             # Komut satırı arayüzü (predict / live / coupon)
+│   ├── backtest.py        # Piyasaya karşı geriye dönük test (log-loss / Brier)
+│   └── cli.py             # Komut satırı arayüzü (predict / live / coupon / backtest)
 ├── scripts/
 │   └── check_api.py     # API anahtarını test eden küçük script
 ├── .env.example         # Ortam değişkeni şablonu
